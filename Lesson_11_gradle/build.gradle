@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.0'
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-params:5.8.1"
+    testRuntimeOnly "org.junit.platform:junit-platform-suite:1.8.1"
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.16.1'
+//    implementation group: 'org.seleniumhq.selenium', name: 'selenium-server', version: '3.141.59'
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-support', version: '4.16.1'
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-api', version: '4.16.1'
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version: '4.16.1'
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
